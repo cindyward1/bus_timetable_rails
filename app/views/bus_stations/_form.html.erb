@@ -1,0 +1,10 @@
+<%= render('layouts/errors', :object => @station) %>
+<br>
+<h5><b>Enter the name of the bus station:</b></h5><br>
+<%= form_for(@station) do |f| %>
+  <div class="form-group">
+    <%= f.label :station_name %>
+    <%= f.text_field :station_name %>
+  </div>
+  <%= f.submit(:class => "btn btn-primary") %>
+<% end %>

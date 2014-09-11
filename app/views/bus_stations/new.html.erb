@@ -1,0 +1,11 @@
+<% content_for(:title, "New Bus Station | Bus Timetable") %>
+<div class='container'>
+  <div class='row'>
+    <h1><%= image_tag('bus.jpg', class: 'pull-left', width: '200') %><b>&nbsp&nbspBus Timetable</b></h1>
+  </div><br>
+  <h3><u>Add a New Station</u></h3>
+    <%= render('form') %>
+  <br><br><br>
+  <hr>
+  <h4><%= link_to "See All Bus Stations", bus_stations_path %></h4>
+</div>
