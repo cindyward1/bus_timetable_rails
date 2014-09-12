@@ -1,0 +1,17 @@
+<% content_for(:title, "Edit Bus Line | Timetable") %>
+<div class='container'>
+  <div class='row'>
+    <h1><%= image_tag('bus.jpg', class: 'pull-left', width: '200') %><b>&nbsp&nbspBus Timetable</b></h1>
+  </div><br>
+  <h3><u>Edit a line</u></h3>
+    <%= render('form') %>
+  <br>
+  <p><%= link_to "Delete Line", bus_line_path(@line),
+                         :data => {:confirm => "Please confirm the deletion of this bus line",
+                                   :method => "delete"},
+                         :class => "btn btn-danger" %></p>
+  <br><br><br>
+  <hr>
+  <h4><%= link_to "See All Bus Lines", bus_lines_path %></h4>
+  <h4><%= link_to "Add a New Bus Line", new_bus_line_path %></h4>
+</div>

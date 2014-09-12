@@ -1,6 +1,6 @@
 class BusStationsController < ApplicationController
   def index
-    @stations = BusStation.all
+    @stations = BusStation.all.order(:station_name)
   end
 
   def new
@@ -16,6 +16,10 @@ class BusStationsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+    @station = BusStation.find(params[:id])
   end
 
   def edit

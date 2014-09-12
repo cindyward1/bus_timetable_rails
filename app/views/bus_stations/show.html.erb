@@ -1,0 +1,19 @@
+<% content_for(:title, "See A Bus Station | Timetable") %>
+<div class='container'>
+  <div class='row'>
+    <h1><%= image_tag('bus.jpg', class: 'pull-left', width: '200') %><b>&nbsp&nbspBus Timetable</b></h1>
+  </div><br>
+  <h3><u>See A Bus Station</u></h3>
+  <h5>(Click on a link to edit the station name or delete the station)</h5>
+  <h4><%= link_to @station.station_name, edit_bus_station_path(@station) %></li></h4>
+  <ul><% if @station.bus_lines.empty? %>
+    <li>There are no bus lines for this station</li>
+  <% else %>
+    <% @station.bus_lines.each do |line| %>
+      <li><%= line.line_name %></li>
+        <% end %>
+  <% end %></ul>
+  <br><br><br>
+  <hr>
+  <h4><%= link_to "Add A New Bus Station", new_bus_station_path %></h4>
+</div>

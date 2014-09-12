@@ -1,0 +1,17 @@
+<%= render('layouts/errors', :object => @stop) %>
+<br>
+<h5><b>Enter the name of the bus stop:</b></h5><br>
+<%= form_for(@stop) do |f| %>
+  <div class="form-group">
+    <%= f.label :stop_name %>
+    <%= f.text_field :stop_name %>
+  </div>
+  <div class="form_group">
+    <%= f.label :stop_time %>
+    <%= f.time_field :stop_time %>
+  </div><br>
+  <%= f.collection_select :bus_station_id, BusStation.all, :id, :station_name %><br><br>
+  <%= f.collection_select :bus_line_id, BusLine.all, :id, :line_name %><br>
+  <br>
+  <%= f.submit(:class => "btn btn-primary") %>
+<% end %>

@@ -1,6 +1,6 @@
 class BusLinesController < ApplicationController
   def index
-    @lines = BusLine.all
+    @lines = BusLine.all.order(:line_name)
   end
 
   def new
@@ -8,9 +8,10 @@ class BusLinesController < ApplicationController
   end
 
   def create
-    @line = BusLine.new(params[:bus_line])
+    @line = BusLine.new(params[:line_params])
+    @line.line_name = params[:bus_line][:line_name]
     if @line.save
-      flash[:notice] = "Bus line created."
+      flash[:notice] = "Bus line created"
       redirect_to bus_lines_path
     else
       render 'new'
@@ -27,9 +28,9 @@ class BusLinesController < ApplicationController
 
   def update
     @line = BusLine.find(params[:id])
-    if @line.update(params[:bus_line])
-      flash[:notice] = "Bus line updated."
-      redirect_to bus_line_path(@line)
+    if @line.update(:line_name => params[:bus_line][:line_name])
+      flash[:notice] = "Bus line updated"
+      redirect_to bus_lines_path
     else
       render 'edit'
     end
@@ -38,7 +39,7 @@ class BusLinesController < ApplicationController
   def destroy
     @line = BusLine.find(params[:id])
     @line.destroy
-    flash[:notice] = "Bus line deleted."
+    flash[:notice] = "Bus line deleted"
     redirect_to bus_lines_path
   end
 end

@@ -16,14 +16,20 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-label.field {
+label {
   text-align: right;
   width: 100px;
   float: left;
   font-weight: bold;
+  padding-right: 10px;
 }
 
 .text_field {
+  width: 300px;
+  float: left;
+}
+
+.time_field{
   width: 300px;
   float: left;
 }

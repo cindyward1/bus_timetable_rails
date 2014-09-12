@@ -1,0 +1,10 @@
+<%= render('layouts/errors', :object => @line) %>
+<br>
+<h5><b>Enter the name of the bus line:</b></h5><br>
+<%= form_for(@line) do |f| %>
+  <div class="form-group">
+    <%= f.label :line_name %>
+    <%= f.text_field :line_name %>
+  </div>
+  <%= f.submit(:class => "btn btn-primary") %>
+<% end %>
