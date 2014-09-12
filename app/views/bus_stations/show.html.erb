@@ -10,7 +10,9 @@
     <li>There are no stops for this station</li>
   <% else %>
     <% @station.bus_stops.order(:stop_time).each do |stop| %>
-      <li><%= stop.stop_time.strftime('%l:%M %P') %>: <%= stop.bus_line.line_name %> stops at <%= stop.bus_station.station_name %></li>
+      <li><%= link_to stop.stop_time.strftime('%l:%M %P'), bus_stop_path(stop) %>:
+        <%= link_to stop.bus_line.line_name, bus_line_path(stop.bus_line) %> stops at
+        <%= stop.bus_station.station_name %></li>
         <% end %>
   <% end %></ul>
   <br><br><br>

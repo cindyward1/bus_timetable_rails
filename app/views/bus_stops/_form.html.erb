@@ -10,8 +10,8 @@
     <%= f.label :stop_time %>
     <%= f.time_field :stop_time %>
   </div><br>
-  <%= f.collection_select :bus_station_id, BusStation.all, :id, :station_name %><br><br>
-  <%= f.collection_select :bus_line_id, BusLine.all, :id, :line_name %><br>
+  <%= f.collection_select :bus_station_id, BusStation.all.order(:station_name), :id, :station_name %><br><br>
+  <%= f.collection_select :bus_line_id, BusLine.all.order(:line_name), :id, :line_name %><br>
   <br>
   <%= f.submit(:class => "btn btn-primary") %>
 <% end %>
