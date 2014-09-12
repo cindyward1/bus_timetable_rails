@@ -6,14 +6,16 @@
   <h3><u>See All Bus Stops</u></h3>
   <h5>(Click on a link to edit the stop name or delete the stop)</h5>
   <% if @stops.empty? %>
-    <h3>There are no Bus Stops in the database</h3>
+    <h3>There are no bus stops in the database</h3>
   <% else %>
     <ul><% @stops.each do |stop| %>
-      <li><%= link_to stop.stop_name, edit_bus_stop_path(stop) %></li>
+      <li><%= link_to stop.stop_name, bus_stop_path(stop) %></li>
         <% end %>
     </ul>
   <% end %>
   <br><br><br>
   <hr>
   <h4><%= link_to "Add A New Bus Stop", new_bus_stop_path %></h4>
+  <h4><%= link_to "See All Bus Stations", bus_stations_path %></h4>
+  <h4><%= link_to "See All Bus Lines", bus_lines_path %></h4>
 </div>

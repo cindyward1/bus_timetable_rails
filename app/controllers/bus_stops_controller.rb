@@ -21,6 +21,10 @@ class BusStopsController < ApplicationController
     end
   end
 
+  def show
+    @stop = BusStop.find(params[:id])
+  end
+
   def edit
     @stop = BusStop.find(params[:id])
   end

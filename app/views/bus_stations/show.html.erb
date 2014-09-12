@@ -5,15 +5,16 @@
   </div><br>
   <h3><u>See A Bus Station</u></h3>
   <h5>(Click on a link to edit the station name or delete the station)</h5>
-  <h4><%= link_to @station.station_name, edit_bus_station_path(@station) %></li></h4>
-  <ul><% if @station.bus_lines.empty? %>
-    <li>There are no bus lines for this station</li>
+  <h4><%= link_to @station.station_name, edit_bus_station_path(@station) %></h4>
+  <ul><% if @station.bus_stops.empty? %>
+    <li>There are no stops for this station</li>
   <% else %>
-    <% @station.bus_lines.each do |line| %>
-      <li><%= line.line_name %></li>
+    <% @station.bus_stops.order(:stop_time).each do |stop| %>
+      <li><%= stop.stop_time.strftime('%l:%M %P') %>: <%= stop.bus_line.line_name %> stops at <%= stop.bus_station.station_name %></li>
         <% end %>
   <% end %></ul>
   <br><br><br>
   <hr>
   <h4><%= link_to "Add A New Bus Station", new_bus_station_path %></h4>
+  <h4><%= link_to "See All Bus Stations", bus_stations_path %></h4>
 </div>
