@@ -1,10 +1,21 @@
 <%= render('layouts/errors', :object => @line) %>
 <br>
-<h5><b>Enter the name of the bus line:</b></h5><br>
+<h5><b>Enter the name of the bus line, check the stations at which you'd like it to stop:</b></h5><br>
 <%= form_for(@line) do |f| %>
   <div class="form-group">
     <%= f.label :line_name %>
     <%= f.text_field :line_name %>
   </div>
+  <%= collection_check_boxes(@stop.id, :bus_station_id, BusStation.all.order(:station_name),
+                           :id, :station_name) do |box| %>
+    <%= box.check_box(:onclick => "$('form#inputTime')[this.checked ? 'show' : 'hide']();") %> <%= box.label %><br>
+    <form id="inputTime">
+      <label for="input_name" class="field">Stop name </label>
+      <input id="input_name" name="bus_stop[stop_name]" type="text" class="field-text">
+      <label for="input_time" class="field">Stop time </label>
+      <input id="input_time" name="bus_stop[input_time]" type="time" class="field-time">
+      <button class="btn btn-primary btn-sm" type="submit">Add stop</button><br>
+    </form><br>
+  <% end %>
   <%= f.submit(:class => "btn btn-primary") %>
-<% end %>
+<% end %><br>

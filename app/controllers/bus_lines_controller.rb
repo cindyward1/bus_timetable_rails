@@ -5,6 +5,7 @@ class BusLinesController < ApplicationController
 
   def new
     @line = BusLine.new
+    @stop = BusStop.new
   end
 
   def create

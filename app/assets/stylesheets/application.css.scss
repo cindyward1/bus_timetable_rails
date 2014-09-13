@@ -16,7 +16,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-label {
+label.field {
   text-align: right;
   width: 100px;
   float: left;
@@ -24,14 +24,17 @@ label {
   padding-right: 10px;
 }
 
-.text_field {
-  width: 300px;
+input.field-text {
+  width: 200px;
   float: left;
+  height: 30px;
 }
 
-.time_field{
-  width: 300px;
+input.field-time {
+  width: 100px;
   float: left;
+  height: 30px;
+  margin-right: 10px;
 }
 
 a.white {
@@ -40,4 +43,8 @@ a.white {
 
 .smaller {
   font-size: 75%;
+}
+
+form#inputTime {
+  display: none;
 }
