@@ -4,12 +4,12 @@
     <h1><%= image_tag('bus.jpg', class: 'pull-left', width: '200') %><b>&nbsp&nbspBus Timetable</b></h1>
   </div><br>
   <h3><u>See All Bus Stops</u></h3>
-  <h5>(Click on a link to edit the stop name or delete the stop)</h5>
+  <h5>(Click on a link to see the details of the stop)</h5>
   <% if @stops.empty? %>
     <h3>There are no bus stops in the database</h3>
   <% else %>
     <ul><% @stops.each do |stop| %>
-      <li><%= link_to stop.stop_name, bus_stop_path(stop) %></li>
+      <li><%= link_to stop.stop_time.strftime('%l:%M %P'), bus_stop_path(stop) %>: Line <%= stop.bus_line.line_name %> arrives at station <%= stop.bus_station.station_name %></li>
         <% end %>
     </ul>
   <% end %>

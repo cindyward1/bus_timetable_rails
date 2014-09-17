@@ -5,9 +5,8 @@
   </div><br>
   <h3><u>See A Bus Stop</u></h3>
   <h5>(Click on a link to edit the stop name or delete the stop)</h5>
-  <h4><%= @stop.stop_time.strftime('%l:%M %P') %>: <%= link_to @stop.stop_name, edit_bus_stop_path(@stop) %></h4>
-  <h5>Line <%= link_to @stop.bus_line.line_name, bus_line_path(@stop.bus_line_id) %> arrives at station <%= link_to @stop.bus_station.station_name, bus_station_path(@stop.bus_station_id) %>
-  <br><br><br>
+  <h4><%= link_to @stop.stop_time.strftime('%l:%M %P'), edit_bus_stop_path(@stop) %>: <span class="smaller">Line <%= link_to @stop.bus_line.line_name, bus_line_path(@stop.bus_line_id) %> arrives at station <%= link_to @stop.bus_station.station_name, bus_station_path(@stop.bus_station_id) %>
+  </span><br><br><br>
   <hr>
   <h4><%= link_to "Add A New Bus Stop", new_bus_stop_path %></h4>
   <h4><%= link_to "See All Bus Stops", bus_stops_path %></h4>

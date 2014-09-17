@@ -1,6 +1,6 @@
 class BusStopsController < ApplicationController
   def index
-    @stops = BusStop.all.order(:stop_name)
+    @stops = BusStop.all.order(:stop_time)
   end
 
   def new
@@ -9,7 +9,6 @@ class BusStopsController < ApplicationController
 
   def create
     @stop = BusStop.new(params[:stop_params])
-    @stop.stop_name = params[:bus_stop][:stop_name]
     @stop.stop_time = params[:bus_stop][:stop_time]
     @stop.bus_station_id = params[:bus_stop][:bus_station_id]
     @stop.bus_line_id = params[:bus_stop][:bus_line_id]
@@ -31,8 +30,7 @@ class BusStopsController < ApplicationController
 
   def update
     @stop = BusStop.find(params[:id])
-    if @stop.update(:stop_name => params[:bus_stop][:stop_name],
-                    :stop_time => params[:bus_stop][:stop_time],
+    if @stop.update(:stop_time => params[:bus_stop][:stop_time],
                     :bus_station_id => params[:bus_stop][:bus_station_id],
                     :bus_line_id => params[:bus_stop][:bus_line_id])
       flash[:notice] = "Bus stop updated"

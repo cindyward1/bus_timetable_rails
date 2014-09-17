@@ -3,10 +3,10 @@
   <div class='row'>
     <h1><%= image_tag('bus.jpg', class: 'pull-left', width: '200') %><b>&nbsp&nbspBus Timetable</b></h1>
   </div><br>
-  <h3><u>Edit a line</u></h3>
+  <h3><u>Edit a Bus Line</u></h3>
     <%= render('form') %>
   <br>
-  <p><%= link_to "Delete Line", bus_line_path(@line),
+  <p><%= link_to "Delete Bus line", bus_line_path(@line),
                          :data => {:confirm => "Please confirm the deletion of this bus line",
                                    :method => "delete"},
                          :class => "btn btn-danger" %></p>
